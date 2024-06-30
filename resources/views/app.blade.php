@@ -64,8 +64,15 @@
             </div>
 
             <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
-              <a href="{{route('login')}}" class="text-sm font-semibold text-violet-950 hover:ring-4 outline rounded-full py-2 px-4">Log in</a>
-              <a href="{{route('register')}}" class="text-sm font-semibold text-white outline outline-violet-950 rounded-full py-2 px-4 bg bg-violet-950 hover:ring-4">Register</a>
+              @if(Auth::check())
+                  <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+                      <button type="submit" class="text-sm font-semibold text-violet-950 hover:ring-4 outline rounded-full py-2 px-4">Logout</button>
+                  </form>
+              @else
+                  <a href="{{ route('login') }}" class="text-sm font-semibold text-violet-950 hover:ring-4 outline rounded-full py-2 px-4">Log in</a>
+                  <a href="{{ route('register') }}" class="text-sm font-semibold text-white outline outline-violet-950 rounded-full py-2 px-4 bg-violet-950 hover:ring-4">Register</a>
+              @endif
             </div>
         </div>
           </nav>

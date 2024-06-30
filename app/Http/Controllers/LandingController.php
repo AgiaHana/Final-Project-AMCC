@@ -11,10 +11,10 @@ class LandingController extends Controller
         return view('landing');
     }
 
-    public function cart()
-    {
-        return view('cart');
-    }
+    // public function cart()
+    // {
+    //     return view('cart');
+    // }
 
     public function detail()
     {

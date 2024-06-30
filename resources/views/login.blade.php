@@ -18,25 +18,26 @@
                 </div>
             </div>
 
-            <form>
+            <form method="POST">
+                @csrf
                 <div class="w-full lg:w-2/3 lg:mx-auto">
                     <div class="w-full px-4 mb-8">
                         <label for="email" class="text-base font-bold">Email</label>
-                        <input type="email" id="email" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="password" class="text-base font-bold">Password</label>
-                        <input type="password" id="password" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="password" id="password" name="password" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                         <a href="#" class="text-base font-medium text-[#4c1d95]">Lupa Password?</a>
                     </div>
                     <div class="w-full px-4">
-                        <button class="text-base font-semibold text-white bg-[#4c1d95] py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500 w-full">LOGIN</button>
-                        <p class="text-base font-medium">Belum memiliki akun?<a href="#" class="text-base font-medium text-[#4c1d95]">Daftar.</a></p>
+                        <button class="text-base font-semibold text-white bg-[#4c1d95] py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500 w-full" type="submit">LOGIN</button>
+                        <p class="text-base font-medium">Belum memiliki akun? <a href="/register" class="text-base font-medium text-[#4c1d95]">Daftar.</a></p>
                     </div>
                 </div>
             </form>
-            </div>
-        </section>
-        <!-- login end -->
-    </body>
-    </html>
+        </div>
+    </section>
+    <!-- login end -->
+</body>
+</html>
