@@ -77,17 +77,28 @@
                         Rp. {{ number_format($cart->product->price, 0, ',', '.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $cart->quantity }}
+                        <form action="/cart/{{ $cart->id }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <input type="number" name="quantity" value="{{ $cart->quantity }}" class="w-16 p-1 text-center border border-gray-300 rounded" />
+                            <button type="submit" class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Update</button>
+                        </form>
                     </td>
                     <td class="px-6 py-4">
-                        {{-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Update</a> --}}
-                        <a href="#" class="ml-2 font-medium text-red-600 dark:text-red-500 hover:underline">Hapus</a>
-                    </td>
+                        <form action="/cart/{{ $cart->id }}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ml-2 font-medium text-red-600 dark:text-red-500 hover:underline">Hapus</button>
+                        </form>
+                    </td>                                                          
                 </tr>
                 @endforeach
                 <tr>
                     <td colspan="6" class="px-6 py-4 text-right">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Checkout</button>
+                        <form action="{{ route('checkout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Checkout</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>
