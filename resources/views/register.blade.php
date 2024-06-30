@@ -26,6 +26,10 @@
                         <input type="text" id="name" name="name" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
+                        <label for="alamat" class="text-base font-bold">Alamat</label>
+                        <input type="text" id="alamat" name="alamat" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                    </div>
+                    <div class="w-full px-4 mb-8">
                         <label for="email" class="text-base font-bold">Email</label>
                         <input type="email" id="email" name="email" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
