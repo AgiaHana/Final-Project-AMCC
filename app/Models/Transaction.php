@@ -15,6 +15,7 @@ class Transaction extends Model
         'item_details',
         'customer_details',
         'snap_token',
+        'transaction_status',
     ];
 
     protected $casts = [
