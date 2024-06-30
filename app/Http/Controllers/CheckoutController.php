@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Transaction;
 use Midtrans;
 
 class CheckoutController extends Controller
@@ -51,6 +52,19 @@ class CheckoutController extends Controller
         // Create Snap Token (to initiate payment page)
         $snapToken = Midtrans\Snap::getSnapToken($transaction_data);
 
+        // Save transaction data to database
+        $data = [
+            'user_id' => auth()->id(),
+            'transaction_details' => json_encode($transaction_details),
+            'item_details' => json_encode($items),
+            'customer_details' => json_encode($customer_details),
+            'snap_token' => $snapToken,
+        ];
+        $transaction = auth()->user()->transactions()->create($data);
+
+        // Clear cart
+        Cart::where('user_id', auth()->id())->delete();
+
         // Redirect to payment page
         return view('checkout', compact('snapToken'));
     }
@@ -67,5 +81,11 @@ class CheckoutController extends Controller
     public function thanks()
     {
         return view('thanks');
+    }
+    public function getTransaction()
+    {
+        $user_id = auth()->id();
+        $transactions = Transaction::where('user_id', $user_id)->get();
+        return view('history', ['transactions' => $transactions]);
     }
 }

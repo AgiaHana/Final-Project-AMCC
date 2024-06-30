@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
 
     // thanks page
     Route::get('thanks', [CheckoutController::class, 'thanks'])->name('thanks');
+
+    // history
+    Route::get('history', [CheckoutController::class, 'getTransaction'])->name('history');
 });
 
 

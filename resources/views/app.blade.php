@@ -32,7 +32,7 @@
               <a href="{{route('landing')}}" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
               <a href="{{route('produk')}}" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
               <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact Us</a>
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">History</a>
+              <a href="{{route('history')}}" class="text-sm font-semibold leading-6 text-gray-900">History</a>
             </div>
             
             <div class="flex gap-6 items-center">

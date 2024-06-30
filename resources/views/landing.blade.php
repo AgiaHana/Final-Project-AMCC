@@ -375,7 +375,7 @@
                         <a href="#" class="hover:underline">Contact-Us</a>
                     </li>
                     <li class="">
-                        <a href="#" class="hover:underline">History</a>
+                        <a href="history" class="hover:underline">History</a>
                     </li>
                   </ul>
               </div>
