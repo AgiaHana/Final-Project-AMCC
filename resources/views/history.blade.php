@@ -55,6 +55,9 @@
                         <th scope="col" class="px-6 py-3">
                             Order ID
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Address
+                        </th>
                         <th>
                             Item Detail
                         </th>
@@ -74,10 +77,12 @@
                         @php
                             $transaction_details = json_decode($transaction->transaction_details);
                             $item_details = json_decode($transaction->item_details);
+                            $customer_details = json_decode($transaction->customer_details);
                         @endphp
                         <tr class="justify-center">
                             <td class="px-6 py-4">{{ $index + 1 }}</td>
                             <td class="px-6 py-4">{{ $transaction_details->order_id }}</td>
+                            <td class="px-6 py-4">{{ $customer_details->address }}</td>
                             <td class="px-6 py-4">
                                 <ul>
                                     @foreach ($item_details as $item)
