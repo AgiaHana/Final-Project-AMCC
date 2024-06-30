@@ -59,7 +59,9 @@ class CheckoutController extends Controller
             'item_details' => json_encode($items),
             'customer_details' => json_encode($customer_details),
             'snap_token' => $snapToken,
+            'transaction_status' => 'pending',
         ];
+
         $transaction = auth()->user()->transactions()->create($data);
 
         // Clear cart

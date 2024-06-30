@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-            Schema::create('transactions', function (Blueprint $table) {
-                $table->id();
-                $table->unsignedBigInteger('user_id');
-                $table->json('transaction_details');
-                $table->json('item_details');
-                $table->json('customer_details');
-                $table->string('snap_token');
-                $table->timestamps();
+        Schema::create('transactions', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->json('transaction_details');
+            $table->json('item_details');
+            $table->json('customer_details');
+            $table->string('snap_token');
+            $table->string('transaction_status');
+            $table->timestamps();
 
-                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            });
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**
