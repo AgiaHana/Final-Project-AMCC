@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -13,7 +15,7 @@ class UserController extends Controller
         return view('login');
     }
 
-    public function login(Request $request)
+    public function loginProcess(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
@@ -23,7 +25,7 @@ class UserController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('landing'));
         }
 
         return back()->withErrors(['email' => 'Invalid credentials']);
@@ -34,7 +36,7 @@ class UserController extends Controller
         return view('register');
     }
 
-    public function register(Request $request)
+    public function registerProcess(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
@@ -52,4 +54,10 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'User created successfully!');
     }
 
+    function logout()
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login');
+    }
 }

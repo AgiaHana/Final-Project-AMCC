@@ -1,87 +1,138 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <title>Cart</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
 
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
 <body>
-    
 
 <nav class="bg-violet-950">
     <div class="flex items-center justify-between p-4">
-    <a href="#" class="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
-        </svg>
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Cart</span>
-    </a>
-
-      <div class="items-right justify-between w-2/3" id="navbar-search">
-        <div class="relative mt-3">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        <a href="#" class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
             </svg>
-          </div>
-          <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Cart</span>
+        </a>
+
+        <div class="items-right justify-between w-100" id="navbar-search">
+            <div class="relative mt-3">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+            </div>
         </div>
-      </div>
     </div>
-  </nav>  
+</nav>
 
-    <div>
-        <div class="relative overflow-x-auto shadow-md">
-            <table class="w-full text-sm text-center text-black">
-                <thead class="text-lg text-black">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 h-4 w-4">
-                            -
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Produk
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Harga
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kuantitas
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Aksi
-                        </th>
-                    </tr>
-                </thead>
+<div class="container mx-auto mt-8">
+    <div class="overflow-x-auto shadow-md">
+        <table class="w-full text-sm text-center text-black">
+            <thead class="text-lg text-black">
+            <tr>
+                <th scope="col" class="px-6 py-3 h-4 w-4">
+                    -
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Produk
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Size
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Harga
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Kuantitas
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Aksi
+                </th>
+            </tr>
+            </thead>
 
-                <tbody class="item-center">
-                    <tr class="justify-center">
-                        <td class="px-6 py-4">
-                            <div class= "flex items-center mb-4">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 font-medium text-gray-900 items-center flex">
-                            <img class="w-24 h-24 mb-3 shadow-lg" src="{{ asset('img/popular1.jpeg')}}" alt="Bonnie image"/>
-                            <p class="pr-4">Troublemaker - Short Pants - Gumlock Black</p>
-                        </td>
-                        <td class="px-6 py-4">
-                            Rp. 75.000
-                        </td>
-                        <td class="px-6 py-4">
-                            1
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <tbody class="item-center">
+                @foreach ($carts as $cart)
+                <tr class="justify-center">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center mb-4">
+                            <input id="checkbox_{{ $cart->id }}" type="checkbox" value="{{ $cart->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 font-medium text-gray-900 items-center flex">
+                        <img src="{{ asset($cart->product->image) }}" class="w-24 h-24 mb-3 shadow-lg" alt="Product Image">
+                        <p class="pr-4">{{ $cart->product->name }}</p>
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $cart->product->size }}
+                    </td>
+                    <td class="px-6 py-4">
+                        Rp. {{ number_format($cart->product->price, 0, ',', '.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <form action="/cart/{{ $cart->id }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <input type="number" name="quantity" value="{{ $cart->quantity }}" class="w-16 p-1 text-center border border-gray-300 rounded" />
+                            <button type="submit" class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Update</button>
+                        </form>
+                    </td>
+                    <td class="px-6 py-4">
+                        <form action="/cart/{{ $cart->id }}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ml-2 font-medium text-red-600 dark:text-red-500 hover:underline">Hapus</button>
+                        </form>
+                    </td>                                                          
+                </tr>
+                @endforeach
+                <tr>
+                    <td colspan="6" class="px-6 py-4 text-right">
+                        <form action="{{ route('checkout') }}" method="POST" id="checkout-form" class="hidden">
+                            @csrf
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Checkout</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkoutForm = document.getElementById('checkout-form');
+                let anyChecked = false;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        anyChecked = true;
+                    }
+                });
+                if (anyChecked) {
+                    checkoutForm.classList.remove('hidden');
+                } else {
+                    checkoutForm.classList.add('hidden');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
