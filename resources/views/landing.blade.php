@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-xs bg-violet-800 border border-violet-800 rounded-lg shadow">
+            <div class="w-full max-w-xs bg-violet-800 border border-violet-800 rounded-lg shadow items-center">
                 <a href="#">
                     <img class="p-6 rounded-t-lg" src="{{ asset('img/popular2.jpeg')}}" alt="product image" />
                 </a>

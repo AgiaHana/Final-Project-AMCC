@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -63,4 +63,38 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+# Website-Troublemaker
+*Troublemaker* merupakan toko fashion yang menawarkan koleksi trendi dan unik untuk mereka yang tidak takut tampil beda. Kami menyediakan berbagai pilihan atasan, topi, dan outwear jacket berkualitas tinggi dengan harga terjangkau. Nikmati pengalaman belanja mudah melalui online store kami dan dapatkan layanan pelanggan yang ramah.
+
+## Tema 
+E-Commerce
+
+## Fitur
+- Login & register
+- Semua produk
+- Detail produk 
+- Riwayat pembelian
+- Cart
+- Checkout
+
+## Tools Yang Digunakan 
+### Frontend : 
+- Tailwindcss
+- Laravel
+### Backend : 
+- Laravel
+- MySQL
+- Midtrans
+
+## Cara Run Project 
+1. Clone project
+2. cp .env.example .env
+3. composer install
+4. siapin mysql
+5. run php artisan migrate
+6. buka dua terminal
+7. di satu terminal run php artisan serve
+8. di satunya lagi run npm run dev
+9. buka http://127.0.0.1:8000
