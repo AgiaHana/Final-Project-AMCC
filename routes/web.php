@@ -4,11 +4,12 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
-Route::get('produk', [LandingController::class, 'produk'])->name('produk');
+Route::get('product', [ProductController::class, 'getAllProducts'])->name('produk');
 Route::get('detail', [LandingController::class, 'detail'])->name('detail');
 
 Route::middleware('auth')->group(function () {
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     // thanks page
     Route::get('thanks', [CheckoutController::class, 'thanks'])->name('thanks');
 });
+
 
 Route::get('login', [UserController::class, 'showlogin'])->name('login');
 Route::get('register', [UserController::class, 'showRegister'])->name('register');
