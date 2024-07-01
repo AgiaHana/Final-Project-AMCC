@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MidtransWebhookController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,3 +38,5 @@ Route::get('login', [UserController::class, 'showlogin'])->name('login');
 Route::get('register', [UserController::class, 'showRegister'])->name('register');
 Route::post('login', [UserController::class, 'loginProcess']);
 Route::post('register', [UserController::class, 'registerProcess']);
+
+Route::post('/midtrans/webhook', [MidtransWebhookController::class, 'handleWebhook']);
