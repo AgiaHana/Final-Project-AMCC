@@ -19,10 +19,12 @@ class CheckoutController extends Controller
         Midtrans\Config::$clientKey = config('midtrans.client_key');
         Midtrans\Config::$isProduction = config('midtrans.is_production') ? true : false;
 
-        // Prepare transaction details
+        $order_id = 'ORDER-' . time();
+        $total_price = $this->calculateTotalAmount($carts);
+
         $transaction_details = [
-            'order_id' => 'ORDER-' . time(),
-            'gross_amount' => $this->calculateTotalAmount($carts),
+            'order_id' => $order_id,
+            'gross_amount' => $total_price,
         ];
 
         // Populate items for the payment request
@@ -56,11 +58,13 @@ class CheckoutController extends Controller
         // Save transaction data to database
         $data = [
             'user_id' => auth()->id(),
-            'transaction_details' => json_encode($transaction_details),
+            'order_id' => $order_id,
+            'total_price' => $total_price,
             'item_details' => json_encode($items),
             'customer_details' => json_encode($customer_details),
             'snap_token' => $snapToken,
             'transaction_status' => 'pending',
+            'delivery_status' => 'pending',
         ];
 
         $transaction = auth()->user()->transactions()->create($data);

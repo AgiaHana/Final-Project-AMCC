@@ -16,10 +16,8 @@ class MidtransWebhookController extends Controller
             $transaction_id = $notification_body['transaction_id'];
             $status_code = $notification_body['status_code'];
 
-            // Find the transaction by order_id and id
-            $transaction = Transaction::where('transaction_details->order_id', $order_id)
-                ->where('id', $transaction_id)
-                ->first();
+            // Find the transaction by order_id 
+            $transaction = Transaction::where('order_id', $order_id)->first();
 
             if (!$transaction) {
                 return response()->json(['code' => 0, 'message' => 'Terjadi kesalahan | Pembayaran tidak valid'], 404);
