@@ -291,9 +291,9 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-4">
                         @foreach ($products as $product)
                             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                                <img class="h-80 w-full rounded-t-lg" src="{{ $product->image }}" alt="product image" />
+                                <img class="h-80 w-80 rounded-t-lg" src="{{ $product->image }}" alt="product image" />
                                 <div class="px-2 py-4">
-                                    <a href="#">
+                                    <a href="{{router('detail')}}">
                                         <h5 class="text-base font-semibold tracking-tight text-gray-900">
                                             {{ $product->name }}</h5>
                                     </a>
