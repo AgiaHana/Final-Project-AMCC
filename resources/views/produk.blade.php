@@ -293,7 +293,7 @@
                             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <img class="h-80 w-80 rounded-t-lg" src="{{ $product->image }}" alt="product image" />
                                 <div class="px-2 py-4">
-                                    <a href="{{router('detail')}}">
+                                    <a href="{{ route('detail') }}">
                                         <h5 class="text-base font-semibold tracking-tight text-gray-900">
                                             {{ $product->name }}</h5>
                                     </a>
