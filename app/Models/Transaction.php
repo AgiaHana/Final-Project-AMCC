@@ -11,11 +11,13 @@ class Transaction extends Model
 
     protected $fillable = [
         'user_id',
-        'transaction_details',
+        'order_id',
+        'total_price',
         'item_details',
         'customer_details',
         'snap_token',
         'transaction_status',
+        'delivery_status',
     ];
 
     protected $casts = [

@@ -77,6 +77,9 @@
                             Transaction Status
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Delivery Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Transaction Time
                         </th>
                     </tr>
@@ -84,13 +87,12 @@
                 <tbody class="item-center">
                     @foreach ($transactions as $index => $transaction)
                         @php
-                            $transaction_details = json_decode($transaction->transaction_details);
                             $item_details = json_decode($transaction->item_details);
                             $customer_details = json_decode($transaction->customer_details);
                         @endphp
                         <tr class="justify-center">
                             <td class="px-6 py-4">{{ $index + 1 }}</td>
-                            <td class="px-6 py-4">{{ $transaction_details->order_id }}</td>
+                            <td class="px-6 py-4">{{ $transaction->order_id }}</td>
                             <td class="px-6 py-4">{{ $customer_details->address }}</td>
                             <td class="px-6 py-4">
                                 <ul>
@@ -100,8 +102,9 @@
                                 </ul>
                             </td>
                             <td class="px-6 py-4">Rp.
-                                {{ number_format($transaction_details->gross_amount, 0, ',', '.') }}</td>
+                                {{ number_format($transaction->total_price, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">{{ $transaction->transaction_status }}</td>
+                            <td class="px-6 py-4">{{ $transaction->delivery_status }}</td>
                             <td class="px-6 py-4">{{ $transaction->created_at->format('d M Y H:i:s') }}</td>
                         </tr>
                     @endforeach

@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->json('transaction_details');
+            $table->string('order_id');
+            $table->integer('total_price');
             $table->json('item_details');
             $table->json('customer_details');
             $table->string('snap_token');
             $table->string('transaction_status');
+            $table->string('delivery_status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

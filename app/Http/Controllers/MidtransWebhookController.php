@@ -8,42 +8,43 @@ use App\Models\Transaction;
 
 class MidtransWebhookController extends Controller
 {
-    public function handleWebhook(Request $request)
+    public function handleWebhook(Request $req)
     {
-        $serverKey = config('midtrans.server_key');
-        $hashed = hash('sha512', $request->input('order_id') . $request->input('status_code') . $request->input('gross_amount') . $serverKey);
-        if ($hashed !== $request->input('signature_key')) {
-            Log::error('Invalid signature key');
-            return response()->json([
-                'status_code' => 401,
-                'message' => 'Invalid signature key',
-            ], 401);
-        }
+        try {
+            $notification_body = json_decode($req->getContent(), true);
+            $order_id = $notification_body['order_id'];
+            $transaction_id = $notification_body['transaction_id'];
+            $status_code = $notification_body['status_code'];
 
-        $transaction = Transaction::where('order_id', $request->input('order_id'))->first();
-        if ($transaction) {
-            if ($request->input('transaction_status') == 'capture' || $request->input('transaction_status') == 'settlement') {
-                $transaction->update([
-                    'transaction_status' => $request->input('transaction_status'),
-                ]);
-            } else if ($request->input('transaction_status') == 'deny' || $request->input('transaction_status') == 'cancel' || $request->input('transaction_status') == 'expire') {
-                $transaction->update([
-                    'transaction_status' => $request->input('transaction_status'),
-                ]);
+            // Find the transaction by order_id 
+            $transaction = Transaction::where('order_id', $order_id)->first();
+
+            if (!$transaction) {
+                return response()->json(['code' => 0, 'message' => 'Terjadi kesalahan | Pembayaran tidak valid'], 404);
             }
 
-            Log::info('Transaction status updated');
+            // Update the transaction status based on the status_code
+            switch ($status_code) {
+                case '200':
+                    $transaction->transaction_status = "SUCCESS";
+                    break;
+                case '201':
+                    $transaction->transaction_status = "PENDING";
+                    break;
+                case '202':
+                    $transaction->transaction_status = "CANCEL";
+                    break;
+                default:
+                    return response()->json(['code' => 0, 'message' => 'Status tidak dikenal'], 400);
+            }
 
-            return response()->json([
-                'status_code' => 200,
-                'message' => 'OK',
-            ], 200);
-        } else {
-            Log::error('Transaction not found');
-            return response()->json([
-                'status_code' => 404,
-                'message' => 'Transaction not found',
-            ], 404);
+            $transaction->save();
+
+            return response('Ok', 200)->header('Content-Type', 'text/plain');
+        } catch (\Exception $e) {
+            // Log the exception message for debugging
+            Log::error('Webhook error: ' . $e->getMessage());
+            return response('Error', 500)->header('Content-Type', 'text/plain');
         }
     }
 }
