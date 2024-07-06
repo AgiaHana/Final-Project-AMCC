@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" href="{{asset('img/logo.png')}}" type="gambar/tipe ikon">
 </head>
+
 <body>
     <!-- register start -->
     <section id="login" class="pt-36 pb-32 bg-[#dfd5ef]">
@@ -25,27 +27,35 @@
                 <div class="w-full lg:w-2/3 lg:mx-auto">
                     <div class="w-full px-4 mb-8">
                         <label for="name" class="text-base font-bold">Nama</label>
-                        <input type="text" id="name" name="name" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="text" id="name" name="name"
+                            class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
-                        <label for="alamat" class="text-base font-bold">Alamat</label>
-                        <input type="text" id="alamat" name="alamat" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <label for="address" class="text-base font-bold">Alamat</label>
+                        <input type="text" id="address" name="address"
+                            class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="email" class="text-base font-bold">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="email" id="email" name="email"
+                            class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="password" class="text-base font-bold">Password</label>
-                        <input type="password" id="password" name="password" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="password" id="password" name="password"
+                            class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="password_confirmation" class="text-base font-bold">Konfirmasi Password</label>
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            class="w-full p-3 rounded-md focus:outline-none focus:ring-[#4c1d95] focus:ring-1 focus:border-[#4c1d95]">
                     </div>
                     <div class="w-full px-4">
-                        <button class="text-base font-semibold text-white bg-[#4c1d95] py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500 w-full" type="submit">REGISTER</button>
-                        <p class="text-base font-medium">Sudah punya akun?<a href="{{route('login')}}" class="text-base font-medium text-[#4c1d95]">Login.</a></p>
+                        <button
+                            class="text-base font-semibold text-white bg-[#4c1d95] py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500 w-full"
+                            type="submit">REGISTER</button>
+                        <p class="text-base font-medium">Sudah punya akun?<a href="{{ route('login') }}"
+                                class="text-base font-medium text-[#4c1d95]">Login.</a></p>
                     </div>
                 </div>
             </form>
@@ -53,4 +63,5 @@
     </section>
     <!-- register end -->
 </body>
+
 </html>

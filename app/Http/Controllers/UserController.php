@@ -40,6 +40,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
@@ -47,6 +48,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $request->input('name');
+        $user->address = $request->input('address');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();

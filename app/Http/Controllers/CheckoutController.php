@@ -40,6 +40,7 @@ class CheckoutController extends Controller
         $customer_details = [
             'first_name' => auth()->user()->name,
             'email' => auth()->user()->email,
+            'address' => auth()->user()->address,
         ];
 
         // Transaction data to be sent to Midtrans
