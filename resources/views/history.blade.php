@@ -68,6 +68,9 @@
                             Transaction Status
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Delivery Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Transaction Time
                         </th>
                     </tr>
@@ -92,6 +95,7 @@
                             <td class="px-6 py-4">Rp.
                                 {{ number_format($transaction->total_price, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">{{ $transaction->transaction_status }}</td>
+                            <td class="px-6 py-4">{{ $transaction->delivery_status }}</td>
                             <td class="px-6 py-4">{{ $transaction->created_at->format('d M Y H:i:s') }}</td>
                         </tr>
                     @endforeach
