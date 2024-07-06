@@ -4,6 +4,8 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ContactControler;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +40,6 @@ Route::get('register', [UserController::class, 'showRegister'])->name('register'
 Route::post('login', [UserController::class, 'loginProcess']);
 Route::post('register', [UserController::class, 'registerProcess']);
 
+
+Route::get('contact', [ContactControler::class, 'index'])->name('contact');
+Route::get('chat', [ChatController::class, 'index'])->name('chat');

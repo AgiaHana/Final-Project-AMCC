@@ -98,7 +98,7 @@
         </div>
 
         {{-- PRODUK TERPOPULER --}}
-        <div class="py-4 px-6">
+        <div class="py-4 px-6 justify-center">
             <p class="text-violet-950 text-3xl font-bold">Produk Terpopuler</p>
 
             <div class="flex gap-2 py-6">

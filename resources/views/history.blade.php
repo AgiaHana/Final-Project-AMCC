@@ -8,6 +8,7 @@
 
     <title>History</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="{{asset('img/logo.png')}}" type="gambar/tipe ikon">
     <style>
         .hidden {
             display: none;
@@ -17,7 +18,7 @@
 
 <body>
 
-    <nav class="bg-violet-950">
+    {{-- <nav class="bg-violet-950">
         <div class="flex items-center justify-between p-4">
             <a href="{{ route('cart') }}" class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -42,7 +43,15 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> --}}
+
+    @extends('app')
+
+    <div class="px-8">
+        <p class="text-4xl font-bold">History</p>
+        <p class="py-4">Selamat datang di halaman Riwayat Pembelian Anda. Di sini, Anda dapat melihat semua transaksi pembelian yang telah Anda lakukan. Terima kasih telah berbelanja dan setia menggunakan brand lokal kami!</p>
+        <hr>
+    </div>
 
     <div class="container mx-auto mt-8">
         <div class="overflow-x-auto shadow-md">
